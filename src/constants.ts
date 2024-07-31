@@ -1,0 +1,10 @@
+export const BACKEND_URL = process.env.REACT_APP_BACKEND_URL ?? ''
+export const WEBSOCKET_URL = process.env.REACT_APP_WEBSOCKET_URL ?? ''
+// export const BACKEND_URL = "https://8656sb74x2.execute-api.us-east-1.amazonaws.com/api/"
+// export const WEBSOCKET_URL = "wss://8h67dwuwre.execute-api.us-east-1.amazonaws.com/api/"
+// export const BACKEND_URL = "https://8000-trilogygrou-youtubebran-j4h3z9r8wh0.ws.trilogy.devspaces.com/"
+export const AUTH0_DOMAIN = "ti-trilogy.us.auth0.com"
+export const AUTH0_CLIENT_ID = "7kN1xtbiAD1RcbxvRSqFFxFbf7PQbhft"
+export const POSTHOG_API_KEY = process.env.REACT_APP_POSTHOG_API_KEY ?? ''
+export const POSTHOG_HOST = 'https://us.i.posthog.com'
+export const VERSION = '3.5.0'

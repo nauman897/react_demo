@@ -1,0 +1,19 @@
+.content {
+	transition: margin-left 0.3s;
+	padding: 1rem 4rem;
+	width: 100%;
+}
+
+.sidebar-container.expanded + .content {
+	margin-left: 280px;
+	width: calc(100% - 280px);
+}
+
+.sidebar-container.collapsed + .content {
+	margin-left: 0;
+	width: 100%;
+}
+
+#button-tooltip > .tooltip-inner {
+	max-width: 80vw;
+}

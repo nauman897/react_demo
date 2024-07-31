@@ -1,0 +1,64 @@
+name: Publish artifacts on AWS
+
+# Run publish pipeline only on push
+on: push
+    
+env:
+  ENVIRONMENT_NAME: ${{ github.ref_name }}
+  RSA_PRIVATE_KEY: ${{ secrets.RSA_PRIVATE_KEY }}
+  BRANCH_NAME: ${{ github.ref_name }}
+  REPOSITORY_NAME: ${{ github.repository }} 
+
+jobs:
+  check:
+    outputs:
+      status: ${{ steps.check_env_file.outputs.files_exists }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Check Enc Env file existence
+        id: check_env_file
+        uses: andstor/file-existence-action@v2
+        with:
+          files: "env/.env.${{ github.ref_name }}.enc"
+
+  deploy:
+    name: Deploy CDK
+    needs: check
+    runs-on: ubuntu-latest
+    if: needs.check.outputs.status == 'true'
+    env:
+      RSA_PRIVATE_KEY: ${{ secrets.RSA_PRIVATE_KEY }}
+      CI: false # Set CI environment variable to false
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        name: Use Node.js 18
+        with:
+          node-version: '18.17.1'
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Load env
+        run: |
+          pip install -r setup/requirements.txt
+          python setup/load_env.py "env/.env.${{ github.ref_name }}.enc"
+
+      - name: Load .env file
+        uses: xom9ikk/dotenv@v1.0.2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: CI=false npm run build # Ensure CI is false during build
+
+      - name: Deploy
+        run: |
+          bash scripts/deploy.sh
+        shell: bash

@@ -1,0 +1,104 @@
+h1 {
+    padding: 1rem;
+}
+
+.custom-table {
+    border: none;
+    background-color: transparent;
+}
+
+.custom-table th,
+.custom-table td {
+    border: none;
+    text-align: center;
+}
+
+.custom-table thead th {
+    text-align: center;
+}
+
+.custom-table th {
+    font-size: 1.25rem;
+    border-bottom: 2px solid #dee2e6;
+    padding: 1rem;
+}
+
+.custom-table td {
+    padding: 0.75rem;
+    font-size: 1rem;
+}
+
+.table-column-channel-id {
+    width: 20%;
+}
+
+.table-column-number-of-videos {
+    width: 15%;
+}
+
+.table-column-sort-videos {
+    width: 15%;
+}
+
+.table-column-start-date {
+    width: 20%;
+}
+
+.table-column-stop-date {
+    width: 20%;
+}
+
+.table-column-status {
+    width: 10%;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.spinner-container .spinner-border {
+    width: 15rem;
+    height: 15rem;
+}
+
+.tab-div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    padding-right: 5rem;
+}
+
+.refresh-button {
+    height: 100%;
+    width: auto;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.custom-tabs .nav-link {
+    color: black;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    margin-right: 5px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.custom-tabs .nav-link.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.custom-tabs .nav-link:hover {
+    background-color: #0056b3;
+    color: white;
+}

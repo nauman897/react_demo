@@ -1,0 +1,14 @@
+.existing-prompts-form-control {
+    font-family: Montserrat, sans-serif;
+    font-size: small;
+    height: 200px;
+    margin-bottom: 15px;
+    justify-content: left;
+  }
+
+  .new-prompts-form-control {
+    font-family: Montserrat, sans-serif;
+    font-size: small;
+    margin-bottom: 15px;
+    justify-content: left;
+  }

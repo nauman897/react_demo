@@ -1,0 +1,23 @@
+.custom-dropdown {
+    width: 100%;
+     position: relative;  
+}
+
+
+.custom-dropdown .dropdown-menu {
+    width: 100%; 
+    max-height: 300px; 
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+.custom-dropdown .dropdown-item {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+.dropdown-list {
+    max-height : 400px;
+	overflow-y: scroll;
+}
